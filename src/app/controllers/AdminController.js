@@ -24,5 +24,32 @@ class AccountsController {
             req.session.destroy();
         })
     }
+    info(req,res)
+        {
+            res.render('admins/info',{data:req.session});
+        }
+    update(req,res)
+    {
+        if(req.body.password!=req.body.password2)
+        {
+            var wmessage="Mật khẩu nhập lại không đúng"
+            res.render('admins/info',{data:req.session,message:wmessage});
+        }
+        else
+        {
+        Admin.findById({ _id : req.session.admin._id } )
+            .then((admin) => {
+                admin.name=req.body.name;
+                admin.password=req.body.password;
+                admin.address=req.body.address;
+                admin.avatar=req.body.avatar;
+                admin.email=req.body.email;
+                Admin.updateOne({_id:admin._id},admin)
+                .then(()=>{
+                    req.session.admin=admin;
+                res.redirect('/admin/info')})
+                })
+        }
+    }
  }
 module.exports = new AccountsController();

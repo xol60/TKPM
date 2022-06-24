@@ -46,39 +46,39 @@
       <li class="sidebar-header">Chức năng</li>
 
       <li>
-        <a href="/info">
+        <a href="/admin/info">
           <i class="zmdi zmdi-face"></i> <span>Thông tin cá nhân</span>
         </a>
       </li>
       <li>
-        <a href="/admins/">
+        <a href="/admin/list">
           <i class="zmdi zmdi-group"></i> <span>Hồ sơ quản trị viên</span>
         </a>
       </li>
       <li>
-        <a href="/customers">
+        <a href="/customer/list">
           <i class="zmdi zmdi-account"></i> <span>Hồ sơ khách hàng</span>
         </a>
       </li>
       
       <li>
-        <a href="/products">
+        <a href="/product/list">
           <i class="zmdi zmdi-grid"></i> <span>Danh sách sản phẩm</span>
         </a>
       </li>
       <li>
-        <a href="/comments">
+        <a href="/comment/list">
           <i class="zmdi zmdi-bookmark-outline"></i> <span>Đánh giá sản phẩm</span>
         </a>
       </li>
       <li>
-        <a href="/orders">
+        <a href="/order/list">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Đơn hàng</span>
           <small class="badge float-right badge-light">Thông báo</small>
         </a>
       </li>
     <li>
-        <a href="/statisticals">
+        <a href="/statistical">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Báo cáo và Thống kê</span>
         </a>
       </li>
@@ -109,13 +109,13 @@
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+        <span class="user-profile"><img src={{data.admin.avatar}} class="img-circle" alt="user avatar"></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <div class="avatar"><img class="align-self-start mr-3" src={{data.admin.avatar}} alt="user avatar"></div>
             <div class="media-body">
             <h6 class="mt-2 user-title">{{data.admin.name}}</h6>
             <p class="user-subtitle">{{data.admin.email}}</p>
@@ -164,9 +164,7 @@
   <div class="clearfix"></div>
 	
   <div class="content-wrapper">
-    <div class="container-fluid">
       {{{body}}}
-      </div>
   </div>
   <!--start color switcher-->
    <div class="right-sidebar">
