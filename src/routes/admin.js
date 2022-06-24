@@ -7,4 +7,5 @@ router.get('/login', adminController.login);
 router.post('/login', adminController.check);
 router.get('/info', adminController.info);
 router.post('/info', adminController.update);
+router.get('/list', adminController.list);
 module.exports = router;

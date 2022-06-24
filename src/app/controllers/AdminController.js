@@ -51,5 +51,13 @@ class AccountsController {
                 })
         }
     }
+    list(req,res){
+        Admin.find({})
+             .lean()
+             .then(admins=>{
+                 res.render("admins/list",{data:req.session,admin:admins}
+                 );
+             })
+    }
  }
 module.exports = new AccountsController();
