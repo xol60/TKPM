@@ -1,4 +1,4 @@
-const { Int32 } = require('mongodb');
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Admin = new Schema({
@@ -8,7 +8,7 @@ const Admin = new Schema({
      name: { type: String,require:true},
      email: { type: String,require:true},
      avatar: { type: String,require:true},
-     rank: { type: Int32,require:true},
+     rank: { type: Number,require:true},
      lock: { type: Boolean,require:true},
 })
 module.exports=mongoose.model('Admin',Admin);
