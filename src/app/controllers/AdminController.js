@@ -59,5 +59,20 @@ class AccountsController {
                  );
              })
     }
+    lock(req,res){
+        Admin.findById(req.params.id)
+        .then(admin=>{
+            if (admin.lock==false)
+            {
+                admin.lock=true;
+            }
+            else
+            {
+                admin.lock=false;
+            }
+            Admin.updateOne({ _id: req.params.id }, admin)
+            .then(() => res.redirect('/admin/list'))
+        })
+    }
  }
 module.exports = new AccountsController();

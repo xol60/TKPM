@@ -1,7 +1,8 @@
 <div class="row">
 	 <div class="col-12 col-lg-12">
 	   <div class="card">
-	     <div class="card-header">Danh sách quản trị viên
+	     <div class="card-header">Danh sách bình luận sản phẩm 
+            <h5>{{product.name}}</h5>
 		  <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -21,25 +22,19 @@
                  <table class="table align-items-center table-flush table-borderless">
                   <thead>
                    <tr>
-                     <th>Họ tên</th>
-                     <th>Ảnh đại diện</th>
-                     <th>Địa chỉ</th>
-                     <th>Email</th>
-                     <th>Cấp bậc</th>
+                     <th>Tên khách hàng</th>
+                     <th>Nội dung bình luận</th>
                      <th>Trạng thái khóa</th>
-                    <th>Hành động</th>
+                     <th>Hành động</th>
                    </tr>
                    </thead>
                    <tbody>
-                    {{#each admin}}
+                    {{#each comment}}
                     <tr>
-                    <td>{{this.name}}</td>
-                    <td><img src={{this.avatar}} class="product-img" alt="product img"></td>
-                    <td>{{this.address}}</td>
-                    <td>{{this.email}}</td>
-                    <td>{{this.rank}}</td>
+                    <td>{{this.nameuser}}</td>
+                    <td>{{this.message}} </td>
                     <td>{{this.lock}}</td>
-                     <td><a href="/admin/{{this._id}}/update"><button type="submit" class="btn btn-light btn-round px-5"><i class="icon-lock"></i> Khóa/Mở khóa</button> </a> </td>
+                     <td><a href="/comment/{{this._id}}/update"><button type="submit" class="btn btn-light btn-round px-5 "><i class="icon-lock"></i> Khóa</button> </a> </td>
                      {{/each}}
 
                  </tbody></table>

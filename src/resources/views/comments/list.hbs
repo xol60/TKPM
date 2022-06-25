@@ -1,7 +1,5 @@
-<div class="row">
-	 <div class="col-12 col-lg-12">
-	   <div class="card">
-	     <div class="card-header">Danh sách quản trị viên
+<div class="card">
+	     <div class="card-header">Danh sách sản phẩm
 		  <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -21,29 +19,27 @@
                  <table class="table align-items-center table-flush table-borderless">
                   <thead>
                    <tr>
-                     <th>Họ tên</th>
-                     <th>Ảnh đại diện</th>
-                     <th>Địa chỉ</th>
-                     <th>Email</th>
-                     <th>Cấp bậc</th>
-                     <th>Trạng thái khóa</th>
-                    <th>Hành động</th>
+                     <th>Tên sản phẩm</th>
+                     <th>Hình ảnh</th>
+                     <th>Giá tiền</th>
+                     <th>Lượng tồn</th>
+                     <th>Xuất sứ</th>
+                     <th>Khóa</th>
+                    <th>Bình luận</th>
                    </tr>
                    </thead>
                    <tbody>
-                    {{#each admin}}
+                    {{#each product}}
                     <tr>
                     <td>{{this.name}}</td>
-                    <td><img src={{this.avatar}} class="product-img" alt="product img"></td>
-                    <td>{{this.address}}</td>
-                    <td>{{this.email}}</td>
-                    <td>{{this.rank}}</td>
+                    <td><img src={{this.image}} class="product-img" alt="product img"></td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.amount}}</td>
+                    <td>{{this.origin}}</td>
                     <td>{{this.lock}}</td>
-                     <td><a href="/admin/{{this._id}}/update"><button type="submit" class="btn btn-light btn-round px-5"><i class="icon-lock"></i> Khóa/Mở khóa</button> </a> </td>
+                     <td><a href="/comment/{{this._id}}/update"><button type="submit" class="btn btn-light btn-round px-5 "><i class="icon-lock"></i> Chi tiết</button> </a> </td>
                      {{/each}}
 
                  </tbody></table>
                </div>
 	   </div>
-	 </div>
-	</div>
