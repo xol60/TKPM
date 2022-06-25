@@ -9,4 +9,4 @@ const Order = new Schema({
      delivery: { type: Date},
      id_customer: { type: String,require:true},
 })
-module.exports=mongoose.model('Customer',Customer);
+module.exports=mongoose.model('Order',Order);

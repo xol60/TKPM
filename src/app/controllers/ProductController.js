@@ -27,6 +27,7 @@ class ProductController {
         const product = new Product(req.body);
         product.trend=false;
         product.lock=false;
+        product.slug=product._id;
         product
             .save()
             .then(()=>res.redirect('/product/list')) 

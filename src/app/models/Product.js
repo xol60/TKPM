@@ -9,5 +9,6 @@ const Product = new Schema({
      lock: { type: Boolean,require:true},
      origin: { type: String,require:true},
      trend: { type: Boolean,require:true},
+     slug: { type: String,require:true},
 })
 module.exports=mongoose.model('Product',Product);

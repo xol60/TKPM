@@ -21,6 +21,21 @@ class CommentController {
             })
         })
     }
+    lock(req,res){
+        Comment.findById(req.params.id)
+        .then(comment=>{
+            if (comment.lock==false)
+            {
+                comment.lock=true;
+            }
+            else
+            {
+                comment.lock=false;
+            }
+            Comment.updateOne({ _id: req.params.id }, comment)
+            .then(() => res.redirect('/comment/list'))
+        })
+    }
 }
 
 module.exports = new CommentController();
