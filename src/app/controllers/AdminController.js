@@ -123,7 +123,7 @@ class AccountsController {
                         });
                         var mail = {
                             from: 'leminhduc050501@gmail.com', // Địa chỉ email của người gửi
-                            to: admin[0].email, // Địa chỉ email của người gửi
+                            to: e, // Địa chỉ email của người gửi
                             subject: 'Đặt lại mật khẩu', // Tiêu đề mail
                             text: 'Mật khẩu mới của bạn là '+pass, // Nội dung mail dạng text
                         };
@@ -140,7 +140,7 @@ class AccountsController {
                 sess.forgot=1;
                 Admin.updateOne({ _id: admin[0]._id }, admin[0])
                 .then(() => {
-                    res.render('admins/login',{false:req.session})})
+                    res.redirect('/admin/login');})
             })
     }
  }
