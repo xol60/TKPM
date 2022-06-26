@@ -4,8 +4,8 @@ var nodemailer = require('nodemailer');
 const option = {
     service: 'gmail',
     auth: {
-        user: 'ptudwshop20212022@gmail.com', // email hoặc username
-        pass: 'Leminhduc0505@' // password
+        user: 'leminhduc050501@gmail.com', // email hoặc username
+        pass: 'cyggtiusfzavsmxa' // password
     }
 };
 class AccountsController {
@@ -21,12 +21,20 @@ class AccountsController {
         .then(account =>{
           if(account.length>=1)
           {
+            if(account[0].lock==true)
+            {
+                sessData.lock=1
+        
+            }
+            else{
                 sessData.admin=account[0];
                 res.redirect('/');
                 return;
+            }
           }
           else
           {
+
             sessData.nologin=1
           }
             res.render('admins/login',{false:req.session});
@@ -93,7 +101,7 @@ class AccountsController {
     }
     change(req,res){
         var e=req.body.email;
-        console.log(555)
+        console.log(e)
         Admin.find({email:e})
         .lean()
         .then(admin=>{
@@ -114,7 +122,7 @@ class AccountsController {
                             }
                         });
                         var mail = {
-                            from: 'ptudwshop20212022@gmail.com', // Địa chỉ email của người gửi
+                            from: 'leminhduc050501@gmail.com', // Địa chỉ email của người gửi
                             to: admin[0].email, // Địa chỉ email của người gửi
                             subject: 'Đặt lại mật khẩu', // Tiêu đề mail
                             text: 'Mật khẩu mới của bạn là '+pass, // Nội dung mail dạng text
@@ -132,7 +140,7 @@ class AccountsController {
                 sess.forgot=1;
                 Admin.updateOne({ _id: admin[0]._id }, admin[0])
                 .then(() => {
-                    res.redirect('/admin/login',{false:req.session})})
+                    res.render('admins/login',{false:req.session})})
             })
     }
  }
