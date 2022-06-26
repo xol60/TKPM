@@ -23,6 +23,7 @@ class CustomerController {
             .then(() => res.redirect('/customer/list'))
         })
     }
+
 }
 
 module.exports = new CustomerController();

@@ -32,7 +32,7 @@
 			  </div>
 			 </div>
 			 <div class="form-group col-6 text-right">
-			  <a href="reset-password.html">Quên mật khẩu?</a>
+			  <a href="/admin/forgot">Quên mật khẩu?</a>
 			 </div>
 			</div><div>
 			 <button type="submit" class="btn btn-light btn-block">Đăng nhập</button>
@@ -44,6 +44,11 @@
           {{#if false.nologin}}
 		  <div class="card-footer text-center py-3">
 		    <p class="text-warning mb-0">Tên đăng nhập hoặc mật khẩu không đúng</p>
+		  </div>
+          {{/if}}
+          {{#if false.forgot}}
+		  <div class="card-footer text-center py-3">
+		    <p class="text-warning mb-0">Vui lòng nhập mật khẩu mới vào</p>
 		  </div>
           {{/if}}
 	     </div>
