@@ -7,6 +7,7 @@ const Order = new Schema({
      note: { type: Boolean,require:true},
      book: { type: String,require:true},
      delivery: { type: Date},
+     total: { type: Number},
      id_customer: { type: String,require:true},
 })
 module.exports=mongoose.model('Order',Order);

@@ -1,160 +1,172 @@
 <div class="container-fluid">
 <div class="row mt-3">
-        <div class="col-lg-4">
-           <div class="card profile-card-2">
-            <div class="card-img-block">
-                <img class="img-fluid" src={{data.admin.avatar}} alt="Card image cap">
-            </div>
-            <div class="card-body pt-5">
-                <img src={{data.admin.avatar}} alt="profile-image" class="profile">
-                <h5 class="card-title">{{data.admin.name}}</h5>
-                <p class="card-text">CẤP BẬC: {{data.admin.rank}}</p>
-                
-        </div>
 
-        </div>
-</div>
-        <div class="col-lg-8">
            <div class="card">
             <div class="card-body">
             <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
                 <li class="nav-item">
-                    <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-user"></i> <span class="hidden-xs">Thông tin</span></a>
+                    <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-user"></i> <span class="hidden-xs">Đang chuẩn bị</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Tin nhắn</span></a>
+                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Đang giao hàng</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Chỉnh sửa</span></a>
+                    <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Đã giao hàng</span></a>
                 </li>
             </ul>
             <div class="tab-content p-3">
                 <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3">Thông tin cá nhân</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6>Địa chỉ</h6>
-                            <p>
-                               {{data.admin.address}}
-                            </p>
-                            <h6>Sở thích</h6>
-                            <p>
-                                Nghe nhạc và đi du lịch
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Cấp bậc</h6>
-                            
-                           <p>{{data.admin.rank}}</p>
-                        </div>
-                        
-                        
-                    </div>
+                   <div class="row">
+	 <div class="col-12 col-lg-12">
+	   <div class="card">
+	     <div class="card-header">Danh sách đơn hàng
+		  <div class="card-action">
+             <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options"></i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="javascript:void();">Action</a>
+              <a class="dropdown-item" href="javascript:void();">Another action</a>
+              <a class="dropdown-item" href="javascript:void();">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="javascript:void();">Separated link</a>
+               </div>
+              </div>
+             </div>
+		 </div>
+	       <div class="table-responsive">
+                 <table class="table align-items-center table-flush table-borderless">
+                  <thead>
+                   <tr>
+                     <th>Địa chỉ</th>
+                     <th>Số điện thoại</th>
+                     <th>Ghi chú</th>
+                     <th>Ngày đặt</th>
+                     <th>Tổng tiền</th>
+                    <th>Hành động</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                    {{#each onot}}
+                    <tr>
+                    <td>{{this.address}}</td>
+                    <td>{{this.phonenumber}}</td>
+                    <td>{{this.note}}</td>
+                    <td>{{this.book}}</td>
+                    <td>{{this.total}}</td>
+                     <td><a href="/order/{{this._id}}/update"><button type="submit" class="btn btn-light btn-round px-5 "><i class="icon-lock"></i>Đang giao</button> </a> </td>
+                     {{/each}}
+
+                 </tbody></table>
+               </div>
+	   </div>
+	 </div>
+</div>
+</div>
                     <!--/row-->
-                </div>
-                <div class="tab-pane" id="messages">
-                    <div class="alert alert-info alert-dismissible" role="alert">
-				   <button type="button" class="close" data-dismiss="alert">&times;</button>
-				    <div class="alert-icon">
-					 <i class="icon-info"></i>
-				    </div>
-				    <div class="alert-message">
-				      <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
-				    </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table table-hover table-striped">
-                        <tbody>                                    
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
-                                </td>
-                            </tr>
-                        </tbody> 
-                    </table>
-                  </div>
-                </div>
-                <div class="tab-pane" id="edit">
-                    <form method="POST">
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Họ tên</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="name" value={{data.admin.name}}>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Địa chỉ</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="address"  value={{data.admin.address}}>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="email" value={{data.admin.email}}>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Ảnh đại diện</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="avatar"  value={{data.admin.avatar}}>
-                            </div>
-                        </div>
                 
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Tên đăng nhập</label>
-                            <div class="col-lg-9">
-                                <h5>{{data.admin.username}}</h5>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Mật khẩu</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" name="password" value={{data.admin.password}}>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Xác nhận mật khẩu</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" name="password2" value={{data.admin.password}}>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-9">
-                                <input type="reset" class="btn btn-secondary" value="Thoát">
-                                <input type="submit" class="btn btn-primary" value="Lưu">
-                            </div>
-                        </div>
-                    </form>
+                                <div class="tab-pane" id="messages">
+                    <div class="row">
+	 <div class="col-12 col-lg-12">
+	   <div class="card">
+	     <div class="card-header">Danh sách đơn hàng
+		  <div class="card-action">
+             <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options"></i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="javascript:void();">Action</a>
+              <a class="dropdown-item" href="javascript:void();">Another action</a>
+              <a class="dropdown-item" href="javascript:void();">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="javascript:void();">Separated link</a>
+               </div>
+              </div>
+             </div>
+		 </div>
+	       <div class="table-responsive">
+                 <table class="table align-items-center table-flush table-borderless">
+                  <thead>
+                   <tr>
+                     <th>Địa chỉ</th>
+                     <th>Số điện thoại</th>
+                     <th>Ghi chú</th>
+                     <th>Ngày đặt</th>
+                     <th>Tổng tiền</th>
+                    <th>Hành động</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                    {{#each odelivering}}
+                    <tr>
+                    <td>{{this.address}}</td>
+                    <td>{{this.phonenumber}}</td>
+                    <td>{{this.note}}</td>
+                    <td>{{this.book}}</td>
+                    <td>{{this.total}}</td>
+                     <td><a href="/order/{{this._id}}/update"><button type="submit" class="btn btn-light btn-round px-5 "><i class="icon-lock"></i>Đã giao</button> </a> </td>
+                     {{/each}}
+
+                 </tbody></table>
+               </div>
+	   </div>
+	 </div>
+	</div>
+</div>
+                <div class="tab-pane" id="edit">
+                    <div class="row">
+	 <div class="col-12 col-lg-12">
+	   <div class="card">
+	     <div class="card-header">Danh sách đơn hàng
+		  <div class="card-action">
+             <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options"></i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="javascript:void();">Action</a>
+              <a class="dropdown-item" href="javascript:void();">Another action</a>
+              <a class="dropdown-item" href="javascript:void();">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="javascript:void();">Separated link</a>
+               </div>
+              </div>
+             </div>
+		 </div>
+	       <div class="table-responsive">
+                 <table class="table align-items-center table-flush table-borderless">
+                  <thead>
+                   <tr>
+                     <th>Địa chỉ</th>
+                     <th>Số điện thoại</th>
+                     <th>Ghi chú</th>
+                     <th>Ngày đặt</th>
+                     <th>Tổng tiền</th>
+                    <th>Ngày giao</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                    {{#each odelivered}}
+                    <tr>
+                    <td>{{this.address}}</td>
+                    <td>{{this.phonenumber}}</td>
+                    <td>{{this.note}}</td>
+                    <td>{{this.book}}</td>
+                    <td>{{this.total}}</td>
+                    <td>{{this.delivery}}</td>
+                     {{/each}}
+
+                 </tbody></table>
+               </div>
+	   </div>
+	 </div>
+	</div>
                     </div>
-		  <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">{{message}}</p>
-		  </div>
     </div>
                 </div>
             </div>
         </div>
-      </div>
       </div>
         

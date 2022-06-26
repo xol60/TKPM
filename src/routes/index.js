@@ -3,6 +3,7 @@ const customerRouter=require('./customer.js')
 const productRouter=require('./product.js')
 const commentRouter=require('./comment.js')
 const orderRouter=require('./order.js')
+const statisticalRouter=require('./statistical.js')
 const mainRouter=require('./main.js')
 function route(app) {
     app.use('/admin',adminRouter)
@@ -10,6 +11,7 @@ function route(app) {
     app.use('/product',productRouter)
     app.use('/comment',commentRouter)
     app.use('/order',orderRouter)
+    app.use('/statistical',statisticalRouter)
     app.use('/',mainRouter);
 }
 

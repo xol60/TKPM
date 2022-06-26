@@ -28,7 +28,19 @@ class OrderController {
         })
     }
     update(req,res){
-       
+       Order.findById(req.params.id)
+       .then(order=>{
+            if(order.status=='not')
+            {
+                order.status='delivering'
+            }
+            else{
+                order.status='delivered'
+                order.delivery=java.time.LocalDateTime.now();
+            }
+            Order.updateOne({ _id: req.params.id }, order)
+            .then(() => res.redirect('/order/list'))
+       })
     }
 }
 
