@@ -36,7 +36,8 @@ class OrderController {
             }
             else{
                 order.status='delivered'
-                order.delivery=java.time.LocalDateTime.now();
+                var today = new Date();
+                order.delivery=today;
             }
             Order.updateOne({ _id: req.params.id }, order)
             .then(() => res.redirect('/order/list'))
