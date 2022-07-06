@@ -2,6 +2,11 @@
 	 <div class="col-12 col-lg-12">
 	   <div class="card">
 	     <div class="card-header">Danh sách quản trị viên
+          {{#if false.no}}
+		  <div class="card-footer text-center py-3">
+		    <p class="text-warning mb-0">Bạn không thể khóa tài khoản cấp cao hơn</p>
+		  </div>
+          {{/if}}
 		  <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">

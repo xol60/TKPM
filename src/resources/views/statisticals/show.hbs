@@ -12,16 +12,17 @@
     let massPopChart = new Chart(myChart, {
       type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['1/2022', '2/2022', '3/2022', '4/2022', '5/2022', '6/2022'],
+        labels:['1/2022', '2/2022', '3/2022', '4/2022', '5/2022', '6/2022','7/2022'],
         datasets:[{
           label:'Tổng thu',
           data:[
-            617594,
-            181045,
-            153060,
-            106519,
-            105162,
-            95072
+            {{o0}},
+            {{o1}},
+            {{o2}},
+            {{o3}},
+            {{o4}},
+            {{o5}},
+            {{o6}},
           ],
           //backgroundColor:'green',
           backgroundColor:[
@@ -31,7 +32,8 @@
             'rgba(75, 192, 192, 0.6)',
             'rgba(153, 102, 255, 0.6)',
             'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)'
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(205, 56, 110, 0.6)',
           ],
           borderWidth:1,
           borderColor:'#777',
@@ -49,7 +51,7 @@
           display:true,
           position:'right',
           labels:{
-            fontColor:'#000'
+            fontColor:'#005'
           }
         },
         layout:{

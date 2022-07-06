@@ -26,6 +26,7 @@ class CommentController {
         .then(comment=>{
             if (comment.lock==false)
             {
+                console.log(comment)
                 comment.lock=true;
             }
             else

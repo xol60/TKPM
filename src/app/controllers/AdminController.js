@@ -79,6 +79,8 @@ class AccountsController {
     lock(req,res){
         Admin.findById(req.params.id)
         .then(admin=>{
+            if(admin.rank<req.session.admin.rank)
+            {
             if (admin.lock==false)
             {
                 admin.lock=true;
@@ -89,6 +91,18 @@ class AccountsController {
             }
             Admin.updateOne({ _id: req.params.id }, admin)
             .then(() => res.redirect('/admin/list'))
+        }
+        else
+        {
+            Admin.find({})
+            .lean()
+            .then(admins=>{
+                var sess=req.session;
+                sess.no=1;
+                res.render("admins/list",{data:req.session,admin:admins,false:req.session}
+                );
+            })
+        }
         })
     }
     logout(req,res){
